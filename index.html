@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador Léxico - Herramienta Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i>
+                <div>
+                    <h1>Analizador Léxico Profesional</h1>
+                    <p class="subtitle">Herramienta avanzada para el análisis léxico de instrucciones de control. Identifica, clasifica y visualiza tokens en código fuente de manera eficiente.</p>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color legend-palabra"></div>
+                            <span>Palabra reservada</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-operador"></div>
+                            <span>Operador</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-identificador"></div>
+                            <span>Identificador</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-simbolo"></div>
+                            <span>Símbolo</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-literal"></div>
+                            <span>Literal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <i class="fas fa-code"></i>
+                    <span>Editor de Código</span>
+                </div>
+                <div class="token-count" id="inputCount">0 caracteres</div>
+            </div>
+            <div class="card-body">
+                <div class="input-group">
+                    <label for="entrada">Ingrese la instrucción a analizar:</label>
+                    <textarea id="entrada" placeholder="Ejemplo: while (i < 10) { i++; }">while (i < 10) { i++; }</textarea>
+                    
+                    <div class="examples">
+                        <span style="font-weight: 500; color: var(--gray); margin-right: 8px;">Ejemplos:</span>
+                        <button class="example-btn" onclick="cargarEjemplo(0)">While simple</button>
+                        <button class="example-btn" onclick="cargarEjemplo(1)">If-else</button>
+                        <button class="example-btn" onclick="cargarEjemplo(2)">Do-while</button>
+                        <button class="example-btn" onclick="cargarEjemplo(3)">For loop</button>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button class="btn" onclick="analizar()">
+                        <i class="fas fa-search"></i>
+                        Analizar Código
+                    </button>
+                    <button class="btn btn-secondary" onclick="limpiar()">
+                        <i class="fas fa-broom"></i>
+                        Limpiar
+                    </button>
+                    <button class="btn btn-outline" onclick="exportarResultados()">
+                        <i class="fas fa-download"></i>
+                        Exportar
+                    </button>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="statTokens">0</div>
+                        <div class="stat-label">Tokens</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="statLines">1</div>
+                        <div class="stat-label">Líneas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="statTime">0ms</div>
+                        <div class="stat-label">Tiempo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <i class="fas fa-list-ul"></i>
+                    <span>Resultados del Análisis</span>
+                </div>
+                <div class="token-count" id="tokenCount">0 tokens</div>
+            </div>
+            <div class="card-body">
+                <div class="result-container">
+                    <div id="resultado">
+                        <div class="empty-state">
+                            <i class="fas fa-file-code"></i>
+                            <h3>No hay tokens para mostrar</h3>
+                            <p>Ingresa una instrucción y haz clic en "Analizar Código" para comenzar.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color legend-palabra"></div>
+                            <span>Palabra reservada</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-operador"></div>
+                            <span>Operador</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-identificador"></div>
+                            <span>Identificador</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-simbolo"></div>
+                            <span>Símbolo</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-literal"></div>
+                            <span>Literal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Analizador Léxico Profesional &copy; 2025 | Herramienta de desarrollo para análisis de código</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
